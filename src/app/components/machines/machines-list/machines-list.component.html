@@ -1,0 +1,28 @@
+<kendo-listview
+[data]="view"
+[loading]="loading"
+class="listview-content"
+[pageable]="{
+    pageSizeValues:sizes
+}"
+[pageSize]="state.take || 5"
+[skip]="state.skip||0"
+(pageChange)="handlePageChange($event)"
+containerClass="listview-content"
+[itemStyle]="{
+    display: 'inline-flex'
+  }"
+>
+<ng-template kendoListViewItemTemplate let-dataItem="dataItem">
+    <!-- <div class="list-item">
+        <img [src]="dataItem.imageUrl|| '/assets/black_image.jpg'" alt="machine img" class="machine-img">
+        <div class="detailes-container">
+            <div class="detailes">
+                <p class="name-and-id">{{dataItem.id+' '+dataItem.name}}</p>
+            </div>
+            <button class="edit">Edit</button>
+        </div>
+    </div> -->
+    <app-list-item [machineData]="dataItem"></app-list-item>
+</ng-template>
+</kendo-listview>

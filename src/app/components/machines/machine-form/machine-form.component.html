@@ -1,0 +1,59 @@
+<div class="form-container">
+<form [formGroup]="machineForm" (ngSubmit)="onSubmit()">
+    <h2>{{data.machineData? 'Edit Machine':'Add Machine'}}</h2>
+    <div class="input-and-error">
+        <div class="input-container">
+            <label for="name">name:</label>
+            <input id="name" formControlName="name" class="input-text" type="text">
+        </div>
+        @if(machineForm.get('name')?.touched && machineForm.get('name')?.invalid) {
+            <div class="invalid-message">{{invalidNameMessage()}}</div>
+        }
+        
+    </div>
+    <div class="input-and-error">
+        <div class="input-container">
+            <label for="manufacturerId">manufacturer:</label>
+            <select id="manufacturerId" formControlName="manufacturerId" class="input-text">
+                @for (manufacturer of manufacturers;track manufacturers) {
+                    <option [value]="manufacturer.id">{{manufacturer.name}}</option>
+                }
+            </select>
+        </div>
+    </div>
+
+    <div class="input-and-error">
+        <div class="input-container">
+            Purchase Time:<kendo-datetimepicker class="input-text" format="dd/MM/yyyy hh:mm" formControlName="purchasedAt"> </kendo-datetimepicker>
+        </div>
+        @if(machineForm.get('purchasedAt')?.touched && (machineForm.get('purchasedAt')?.invalid || machineForm.errors?.['invalidDate'])) {
+            <div class="invalid-message">{{invalidPurchaseDateMessage()}}</div>
+        }
+    </div>
+    <div class="input-and-error">
+        <div class="input-container">
+            <label for="manufactureYear">manufacture year:</label>
+            <input id="manufactureYear" formControlName="manufactureYear" class="input-text" type="number">
+        </div>
+        @if(machineForm.get('manufactureYear')?.touched && machineForm.get('manufactureYear')?.invalid) {
+            <div class="invalid-message">{{invalidManufactureYearMessage()}}</div>
+        }
+    </div>
+    <div class="input-and-error">
+        <div class="input-container">
+            <label for="capacity">capacity(%):</label>
+            <input formControlName="capacity" class="input-text" type="number">
+        </div>
+        @if(machineForm.get('capacity')?.touched && machineForm.get('capacity')?.invalid) {
+            <div class="invalid-message">{{invalidCapacityMessage()}}</div>
+        }
+    </div>
+
+    <div class="checkbox-input-container">
+        <label for="status">machine status (active?)</label>
+        <input id="status" formControlName="status" type="checkbox">
+    </div>
+    <button class="submit-btn" [disabled]="machineForm.invalid" type="submit">Submit</button>
+</form>
+<button class="close-btn" (click)="close()">Close</button>
+</div>

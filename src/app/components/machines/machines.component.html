@@ -1,0 +1,16 @@
+<div class="machines-container">
+  <kendo-toolbar>
+    <kendo-toolbar-button text="Add Machine" (click)="onAddMachine()"></kendo-toolbar-button>
+    <kendo-toolbar-button text="Refresh" (click)="onRefresh()"></kendo-toolbar-button>
+
+    <kendo-toolbar-buttongroup selection="single" >
+      <kendo-toolbar-button (selectedChange)="onToggle($event)" text="grid view" [selected]="true" [togglable]="true"></kendo-toolbar-button>
+      <kendo-toolbar-button text="list view" [togglable]="true"></kendo-toolbar-button>
+    </kendo-toolbar-buttongroup>
+  </kendo-toolbar>
+  @if (isGrid) {
+    <app-machines-grid></app-machines-grid>
+  }@else {
+    <app-machines-list></app-machines-list>
+  }
+</div>

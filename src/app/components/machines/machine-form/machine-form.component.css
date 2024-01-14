@@ -1,0 +1,79 @@
+.form-container{
+    background-color: #EAD196;
+}
+form{
+    width: 50vw;
+    background-color: #EAD196;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    width:40vw;
+    min-width: 350px;
+
+}
+.input-text{
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid blue;
+    border-radius: 5px;
+    width: 70%;
+}
+
+.inline-block{
+    display: inline-block;
+
+}
+
+.submit-btn{
+    display: block;
+    margin: auto;
+    width: 50%;
+    padding: 0.5rem;
+    color: white;
+    background-color: blue;
+    margin-top: 1rem;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    font-weight: 700;
+}
+
+.invalid-message{
+    color: red;
+    font-size: 0.75rem;
+    text-align: center;
+    margin-top: 0.4rem;
+}
+
+.input-container{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 1rem;
+
+}
+label{
+    display: inline-block;
+    margin: 0;
+}
+.checkbox-input-container{
+    display: flex;
+    gap: 20px;
+    margin-top: 1rem;
+}
+
+.input-and-error{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.close-btn{
+ margin: 5px;
+ padding: 2px 3px;
+ background-color: #fdf8dd;
+ cursor: pointer;
+ border-radius: 10px;
+}
+

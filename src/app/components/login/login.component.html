@@ -1,0 +1,21 @@
+<div class="login-container">
+    <div class="form-container">
+        <form #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm)">
+            <h1>Login</h1>
+            <div class="inputs-container">
+                <input #myUsername="ngModel" type="text" name="username" placeholder="username" ngModel required>
+            @if (myUsername.touched && myUsername.invalid) {
+                <div class="error-message">you must enter username</div>
+            }
+            <input #myPassword="ngModel" type="password" name="password" placeholder="password" ngModel required>
+            @if (myPassword.touched&&myPassword.invalid) {
+                <div class="error-message">you must enter password</div>
+            }
+            @if (isUnsuccessfullLogin){
+                <div class="error-message">username or password incorrrect!</div>
+            }
+            </div>
+            <button type="submit" [disabled]="loginForm.invalid">Login</button>
+        </form>
+    </div>
+</div>
